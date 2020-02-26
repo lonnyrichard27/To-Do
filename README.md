@@ -1,3 +1,5 @@
+To start this project on your local machine run:
+
 # vue-todo
 
 ## Project setup
