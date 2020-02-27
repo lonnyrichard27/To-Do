@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 
 export default { 
     name: "AddTodo",
@@ -23,8 +23,8 @@ export default {
             const newTodo = {
                 // because the id has to be unique we installed 'uuid' a package that
                 // generates random id
-                
-                id: uuidv4(),
+
+                // id: uuidv4(),
                 title: this.title,
                 completed: false
             }

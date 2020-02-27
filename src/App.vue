@@ -26,15 +26,27 @@ export default {
   },
   methods: {
       deleteTodo(id) {
-        this.todos = this.todos.filter(todo => todo.id !== id );
+          axios.delete(`https://jsonplaceholder.typicode.com/todos${id}`)
+          
+          .then(res => this.todos = this.todos.filter(todo => todo.id !== id, res.data))
+          .catch(err => console.log(err))
+
       },
       addTodo(newTodo) {
+        const { title, completed } = newTodo;
+
+        axios.post('https://jsonplaceholder.typicode.com/todos', {
+          title,
+          completed
+        })
+          .then(response => this.todos = [...this.todos, response.data])
+          .catch(err => console.log(err))
         this.todos = [...this.todos, newTodo]; 
       }
       },
        created (){
-        // fetch('https://jsonplaceholder.typicode.com/todos/1')
-        //   .then(response => this.todos = response.data)
+        // fetch('https://jsonplaceholder.typicode.com/todos')
+        //   .then(res => this.todos = res.data)
         //   .then(json => console.log(json))
         // .catch(err => (console.log(err)));
 
